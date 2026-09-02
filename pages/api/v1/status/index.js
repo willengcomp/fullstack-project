@@ -28,7 +28,7 @@ async function status(request, response) {
       database: {
         version: databeseVersionValue,
         max_connections: parseInt(databaseMaxConnectionValue),
-        opened_connections: databaseOpenedConnectionsResult,
+        opened_connections: databaseOpenedConnectionsValue,
       },
     },
   });
