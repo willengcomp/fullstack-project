@@ -1,4 +1,3 @@
-import database from "infra/database.js";
 import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
@@ -17,6 +16,6 @@ describe("GET /api/v1/migrations", () => {
 
       expect(Array.isArray(responseBody)).toBe(true);
       expect(responseBody.length).toBeGreaterThan(0);
-    });
+    }); 
   });
 });
