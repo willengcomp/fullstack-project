@@ -1,5 +1,5 @@
 import migrationRunner from "node-pg-migrate";
-import { join } from "node:path";
+import { resolve } from "node:path";
 import database from "infra/database";
 
 export default async function status(request, response) {
@@ -19,7 +19,7 @@ export default async function status(request, response) {
     const defaultMigrationOptions = {
       dbClient: dbClient, // dbClient eh uma variavel que representa a conexao com o banco de dados Postgres. Ele eh usado para executar as migracoes e registrar o historico das migracoes aplicadas
       dryRun: true, // dryRun eh uma opcao que permite executar as migracoes sem realmente aplicá-las no banco de dados. Ele apenas simula a execucao das migracoes e retorna o resultado, sem modificar o estado do banco de dados
-      dir: join("infra", "migrations"), // dir eh uma opcao que especifica o caminho para o diretorio onde estao os arquivos de migracao. Ele deve ser um caminho relativo ao arquivo que esta executando o migrationRunner
+      dir: resolve("infra", "migrations"), // dir eh uma opcao que especifica o caminho para o diretorio onde estao os arquivos de migracao. Ele deve ser um caminho relativo ao arquivo que esta executando o migrationRunner
       direction: "up", // direction eh uma opcao que indica a direcao das migracoes a serem executadas. Ele pode ser "up" para aplicar as migracoes ou "down" para reverter as migracoes
       verbose: true, // verbose eh uma opcao que habilita a exibicao de mensagens detalhadas sobre a execucao das migracoes. Ele mostra informacoes sobre cada migracao, como o nome do arquivo, o status da execucao e o tempo gasto
       migrationsTable: "pgmigrations", // migrationsTable eh uma opcao que define o nome da tabela que sera usada para registrar o historico das migracoes aplicadas. Ele deve ser um nome de tabela valido no banco de dados
