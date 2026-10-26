@@ -1,5 +1,5 @@
 import { Client } from "pg";
-import {ServiceError} from "infra/errors.js";
+import { ServiceError } from "infra/errors.js";
 
 async function query(queryObject) {
   let client;
@@ -11,7 +11,7 @@ async function query(queryObject) {
   } catch (error) {
     const serviceErrorObject = new ServiceError({
       message: "Erro na conexão ou na Query.",
-    })
+    });
     throw serviceErrorObject;
   } finally {
     await client?.end();

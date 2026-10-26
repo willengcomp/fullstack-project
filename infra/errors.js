@@ -1,5 +1,5 @@
 export class InternalServerError extends Error {
-  constructor({ cause , statusCode}) {
+  constructor({ cause, statusCode }) {
     super("Um erro interno ocorreu no servidor.", {
       cause,
     });
@@ -38,12 +38,12 @@ export class ServiceError extends Error {
   }
 }
 
-
 export class MethodNotAllowedError extends Error {
   constructor() {
     super("Método não permitido para este endpoint.");
     this.name = "Method Not Allowed";
-    this.action = "Verifique se o método HTTP utilizado é o válido para este endpoint.";
+    this.action =
+      "Verifique se o método HTTP utilizado é o válido para este endpoint.";
     this.statusCode = 405;
   }
   //declaracao de um metodo que diz o que sera feito caso o objeto seja transformado para JSON
@@ -56,4 +56,3 @@ export class MethodNotAllowedError extends Error {
     };
   }
 }
-
